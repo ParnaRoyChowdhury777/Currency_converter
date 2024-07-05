@@ -15,7 +15,7 @@ const ConverterForm = () => {
   };
 
   const getExchangeRate = async () => {
-    const API_URL = `https://www.frankfurter.app/latest?amount=1&from=${fromCurrency}&to=${toCurrency}`;
+    const API_URL = `https://v6.exchangerate-api.com/v6/2d9ba684fe2011d97a715b82/latest/${fromCurrency}`;
 
     setIsLoading(true);
 
@@ -25,7 +25,7 @@ const ConverterForm = () => {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      const rate = (data.rates[toCurrency] * amount).toFixed(2);
+      const rate = (data.conversion_rates[toCurrency] * amount).toFixed(2);
       setResult(`${amount} ${fromCurrency} = ${rate} ${toCurrency}`);
     } catch (error) {
       console.error("Error fetching data: ", error);
