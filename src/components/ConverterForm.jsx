@@ -15,8 +15,7 @@ const ConverterForm = () => {
   };
 
   const getExchangeRate = async () => {
-    const API_KEY = import.meta.env.VITE_API_KEY;
-    const API_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${fromCurrency}`;
+    const API_URL = `https://v6.exchangerate-api.com/v6/2d9ba684fe2011d97a715b82/latest/${fromCurrency}`;
 
     setIsLoading(true);
 
